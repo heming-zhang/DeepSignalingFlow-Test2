@@ -65,7 +65,7 @@ def arg_parse():
                         lr = 0.001,
                         clip= 2.0,
                         batch_size = 64,
-                        num_epochs = 100,
+                        num_epochs = 200,
                         num_workers = 0,
                         input_dim = 4,
                         hidden_dim = 4,
@@ -149,7 +149,7 @@ def train_geowebgnn_model(dataset_loader, model, device, args, learning_rate):
 def train_geowebgnn(args, fold_n, load_path, iteration_num, device):
     # TRAINING DATASET BASIC PARAMETERS
     # [num_feature, num_gene, num_drug]
-    num_feature = 7
+    num_feature = 4
     dict_drug_num = pd.read_csv('./data/filtered_data/drug_num_dict.csv')
     num_drug = dict_drug_num.shape[0]
     final_annotation_gene_df = pd.read_csv('./data/filtered_data/kegg_gene_annotation.csv')
@@ -319,7 +319,7 @@ def test_geowebgnn(args, fold_n, model, test_save_path, device):
     # CLEAN RESULT PREVIOUS EPOCH_I_PRED FILES
     path = test_save_path
     # [num_feature, num_gene, num_drug]
-    num_feature = 7
+    num_feature = 4
     dict_drug_num = pd.read_csv('./data/filtered_data/drug_num_dict.csv')
     num_drug = dict_drug_num.shape[0]
     final_annotation_gene_df = pd.read_csv('./data/filtered_data/kegg_gene_annotation.csv')
@@ -380,13 +380,13 @@ if __name__ == "__main__":
     # TRAIN [FOLD-1]
     fold_n = 1
     # prog_args.model = 'load'
-    # load_path = './data/result/epoch_100/best_train_model.pt'
+    # load_path = './data/result/epoch_200/best_train_model.pt'
     load_path = ''
     yTr = np.load('./data/form_data/yTr' + str(fold_n) + '.npy')
     # yTr = np.load('./data/form_data/y_split1.npy')
     dl_input_num = yTr.shape[0]
     epoch_iteration = int(dl_input_num / prog_args.batch_size)
-    start_iter_num = 100 * epoch_iteration
+    start_iter_num = 200 * epoch_iteration
     train_geowebgnn(prog_args, fold_n, load_path, start_iter_num, device)
 
     # # # TEST THE MODEL

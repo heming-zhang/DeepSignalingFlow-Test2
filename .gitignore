@@ -13,3 +13,6 @@ data/raw_data
 /data/init_manual_data
 /data/map_cell_line
 /data/map_manual_cell_line
+
+# Result
+/data/result
