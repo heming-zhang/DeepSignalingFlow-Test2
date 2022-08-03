@@ -436,6 +436,7 @@ if __name__ == "__main__":
     ###########################################################################################
     path = './datainfo2/result/webgnn_decoder/epoch_200_4'
     epoch_num = 200
+    epoch_num = 200
     min_train_id = PlotMSECorr(dir_opt).rebuild_loss_pearson(path, epoch_num)
     PlotMSECorr(dir_opt).plot_loss_pearson(path, epoch_num)
 
