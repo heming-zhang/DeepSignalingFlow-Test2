@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error 
 
-from tmain_webgnn_decoder import arg_parse, build_webgnn_model
+from geo_tmain_webgnn import arg_parse, build_geowebgnn_model
 
 class PlotMSECorr():
     def __init__(self, dir_opt):
@@ -198,7 +198,7 @@ class ReformWeightAdj():
                 load_path = './datainfo2/result/epoch_75_' + str(count) + '/best_train_model.pth'
             count += 1
             prog_args = arg_parse()
-            model = build_webgnn_model(prog_args)
+            model = build_geowebgnn_model(prog_args)
             model.load_state_dict(torch.load(load_path))
             conv_up_weight_adj, conv_down_weight_adj = ReformWeightAdj(dir_opt).reform_weight_adj(RNA_seq_filename, model, dataset_num, conv_concat)
             conv_up_weight_adj_bind += conv_up_weight_adj
