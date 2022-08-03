@@ -193,9 +193,9 @@ class ReformWeightAdj():
         conv_down_weight_adj_bind = np.zeros((num_node, num_node))
         for dataset_num in dataset_num_list:
             if count == 0:
-                load_path = './datainfo2/result/epoch_75/best_train_model.pth'
+                load_path = './datainfo2/result/epoch_200/best_train_model.pth'
             else:
-                load_path = './datainfo2/result/epoch_75_' + str(count) + '/best_train_model.pth'
+                load_path = './datainfo2/result/epoch_200_' + str(count) + '/best_train_model.pth'
             count += 1
             prog_args = arg_parse()
             model = build_geowebgnn_model(prog_args)
@@ -434,14 +434,14 @@ if __name__ == "__main__":
     ###########################################################################################
     ############### ANALYSE [MSE_LOSS/PEARSON CORRELATION] FROM RECORDED FILES ################
     ###########################################################################################
-    path = './datainfo2/result/webgnn_decoder/epoch_75_4'
-    epoch_num = 75
+    path = './datainfo2/result/webgnn_decoder/epoch_200_4'
+    epoch_num = 200
     min_train_id = PlotMSECorr(dir_opt).rebuild_loss_pearson(path, epoch_num)
     PlotMSECorr(dir_opt).plot_loss_pearson(path, epoch_num)
 
     # # ANALYSE DRUG EFFECT
     # print('ANALYSING DRUG EFFECT...')
-    epoch_time = '75'
+    epoch_time = '200'
     best_model_num = str(min_train_id)
     PlotMSECorr(dir_opt).plot_train_real_pred(path, best_model_num, epoch_time)
     PlotMSECorr(dir_opt).plot_test_real_pred(path, epoch_time)
