@@ -303,8 +303,8 @@ if os.path.exists('../data/filtered_data') == False:
     os.mkdir('../data/filtered_data')
 
 
-# dataset = 'almanac'
-dataset = 'oneil'
+dataset = 'almanac'
+# dataset = 'oneil'
 
 # CellLineAnnotation().parse_cell_xml()
 # CellLineAnnotation().dl_cell_annotation(dataset)
@@ -314,10 +314,9 @@ dataset = 'oneil'
 # GeneAnnotation().gdsc_raw_cnv_tail_overzero()
 # GeneAnnotation().gdsc_cnv_tail_overzero()
 # GeneAnnotation().kegg_omics_intersect()
-# GeneAnnotation().kegg_up_omics_intersect()
 # GeneAnnotation().kegg_drugbank_gene_intersect()
 
 # DrugAnnotation().nci_drugbank_drug_intersect()
 
 # RecheckFinal().recheck_cell_line()
-RecheckFinal().final()
+# RecheckFinal().final()
